@@ -1,4 +1,4 @@
-flutter # eqaida
+# eqaida
 
 A new Flutter project.
 

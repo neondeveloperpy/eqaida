@@ -1,5 +1,6 @@
 // lib/core/theme/app_theme.dart
 import 'package:flutter/material.dart';
+import '../constants/app_constants.dart';
 
 /// Custom colour tokens that Material's ColorScheme doesn't cover.
 /// Change them here and every screen follows (light + dark).
@@ -117,6 +118,7 @@ class AppTheme {
     final scheme = ColorScheme.fromSeed(seedColor: seed, brightness: brightness);
     return ThemeData(
       useMaterial3: true,
+      fontFamily: AppConstants.appFont,
       colorScheme: scheme,
       scaffoldBackgroundColor: brightness == Brightness.light
           ? const Color(0xFFFAFAFA)

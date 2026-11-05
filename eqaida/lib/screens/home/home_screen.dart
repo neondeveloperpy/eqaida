@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import '../../core/constants/app_constants.dart';
 import '../../core/theme/app_theme.dart';
+import '../../core/theme/theme_toggle_button.dart';
 import '../../data/lessons_repository.dart';
 import '../../models/lesson_model.dart';
 import '../../services/auth_service.dart';
@@ -90,13 +91,27 @@ class _HomeScreenState extends State<HomeScreen> {
                 Positioned(
                   top: 36,
                   right: 12,
-                  child: CircleAvatar(
-                    backgroundColor: Colors.white,
-                    child: IconButton(
-                      tooltip: 'Log out',
-                      icon: const Icon(Icons.logout, color: Colors.black87, size: 20),
-                      onPressed: _logout,
-                    ),
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: Colors.white,
+                        child: IconButtonTheme(
+                          data: IconButtonThemeData(
+                            style: IconButton.styleFrom(foregroundColor: Colors.black87),
+                          ),
+                          child: const ThemeToggleButton(),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      CircleAvatar(
+                        backgroundColor: Colors.white,
+                        child: IconButton(
+                          tooltip: 'Log out',
+                          icon: const Icon(Icons.logout, color: Colors.black87, size: 20),
+                          onPressed: _logout,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Positioned(

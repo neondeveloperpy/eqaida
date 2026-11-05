@@ -1,6 +1,7 @@
 // lib/screens/auth/auth_screen.dart
 import 'package:flutter/material.dart';
 import '../../core/constants/app_constants.dart';
+import '../../core/theme/theme_toggle_button.dart';
 import '../../services/auth_service.dart';
 
 class AuthScreen extends StatefulWidget {
@@ -88,6 +89,19 @@ class _AuthScreenState extends State<AuthScreen> {
                         fontSize: 16,
                         color: Colors.black,
                       ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: 36,
+                  right: 12,
+                  child: CircleAvatar(
+                    backgroundColor: Colors.white,
+                    child: IconButtonTheme(
+                      data: IconButtonThemeData(
+                        style: IconButton.styleFrom(foregroundColor: Colors.black87),
+                      ),
+                      child: const ThemeToggleButton(),
                     ),
                   ),
                 ),

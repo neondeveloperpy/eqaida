@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import '../../core/constants/app_constants.dart';
 import '../../core/theme/app_theme.dart';
+import '../../core/theme/theme_toggle_button.dart';
 import '../../data/lessons_repository.dart';
 import '../../models/lesson_model.dart';
 import '../../models/question_model.dart';
@@ -135,7 +136,10 @@ class _UniversalTestScreenState extends State<UniversalTestScreen> {
     final q = _q;
 
     return Scaffold(
-      appBar: AppBar(title: Text('Lesson ${lesson.id} Assessment')),
+      appBar: AppBar(
+        title: Text('Lesson ${lesson.id} Assessment'),
+        actions: const [ThemeToggleButton()],
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),

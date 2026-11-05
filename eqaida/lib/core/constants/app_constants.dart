@@ -26,7 +26,8 @@ class AppConstants {
   static const String homeImage = 'assets/images/home.png';
 
   // Fonts
-  static const String arabicFont = 'Amiri';
+  static const String appFont = 'Poppins'; // all Latin UI text (set in AppTheme)
+  static const String arabicFont = 'Amiri'; // Arabic letters only
 
   // Learning rules
   static const int defaultPassScore = 70; // percent needed to unlock next lesson

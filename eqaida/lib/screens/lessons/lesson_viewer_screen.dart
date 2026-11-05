@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import '../../core/constants/app_constants.dart';
 import '../../core/theme/app_theme.dart';
+import '../../core/theme/theme_toggle_button.dart';
 import '../../data/lessons_repository.dart';
 import '../../models/lesson_model.dart';
 import '../../services/audio_service.dart';
@@ -131,6 +132,7 @@ class _LessonViewerScreenState extends State<LessonViewerScreen> {
           AppConstants.appName,
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22.0),
         ),
+        actions: const [ThemeToggleButton()],
       ),
       body: SafeArea(
         child: Column(

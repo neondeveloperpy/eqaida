@@ -81,6 +81,12 @@ class AuthService {
 
   static Future<void> logout() async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.clear();
+    // Remove only account data; device settings (e.g. theme_mode) stay.
+    final keys = prefs.getKeys().where(
+      (k) => k == _keyEmail || k == _keyUnlockedLesson || k.startsWith(_scorePrefix),
+    );
+    for (final k in keys.toList()) {
+      await prefs.remove(k);
+    }
   }
 }

@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  db:
+    image: mariadb:latest
+    container_name: eqaida_mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_secure_password
+      MYSQL_DATABASE: eqaida_db
+      MYSQL_USER: eqaida_user
+      MYSQL_PASSWORD: user_secure_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql:z
+
+  backend:
+    build: ./backend
+    container_name: eqaida_fastapi
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=mysql+pymysql://eqaida_user:user_secure_password@db:3306/eqaida_db
+    depends_on:
+      - db
+
+volumes:
+  db_data:
+    driver: local
